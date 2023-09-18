@@ -1,0 +1,127 @@
+<!-- 
+    '!' or "Bang" is a way for us to quickly create a boilerplate for our HTML.
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <!-- 
+    - DOCTYPE: declares exactly what it is, an HTML document.
+    - lang: notes what the language of the document. Helps assist search engines & browsers.
+    - The head tag holds all of our meta data for the document. 
+    - This holds various information such as the title of the document, viewport settings, and links to other files, such as CSS.
+    -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Into to HTML</title>
+    <!-- 
+        - charset: defines which characters are available, such as 0-9, A-Z, and symbols.
+            - UTF-8 covers almost all of the characters
+        - http-equiv: Allows us to render older browser versions if necessary. In this case, we are targeting Edge; however this isn't as necessary. 
+        - name & content: Details on the users viewport, or screen, and auto scales as necessary.
+        - title: details the title of our document. This is displayed in the tab of the browser page.
+    -->
+  </head>
+  <!-- 
+    The body tag:
+    - What the client will display when rendering. 
+    - What you see on the page in the browser.
+-->
+  <body>
+    <h1>Examples of Structural Elements</h1>
+    <img>
+        <div>
+            - h1: heading. These range from h1 - h6, getting smaller as the number
+            increases. 
+            - div: a division 
+            - p : paragraph element 
+            - img: provides us an
+            element to present an image. 
+            - span: We can write a block of text without
+            line breaks.
+        </div>
+        <h2>Sample H2</h2>
+        <h3>Sample H3</h3>
+        <h6>Sample H6</h6>
+        <p>This is a paragraph element!</p>
+
+        <!-- Through emmet, we can add blocks of text via "lorem". This is a great way to create filler content for mock ups. -->
+        <span>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex sed atque mollitia, suscipit nam reprehenderit eaque corrupti quaerat ducimus laudantium tempore animi in facilis nobis quam aspernatur ab sapiente dolore!
+
+
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil quibusdam, minima dolore explicabo eligendi molestias laboriosam repellat rerum officia doloribus earum consequatur, atque eum aliquam assumenda. Error dolorum quibusdam vel.
+
+
+            Cumque eum saepe, ratione magni temporibus omnis modi quia illum accusantium, ipsum recusandae hic itaque eius esse. Eos rem dolore optio quam debitis! Odio veritatis non voluptatem provident commodi hic.
+        </span>
+        <br>
+        <img src="https://assets.website-files.com/5f4577933a0688792f77983b/5ffcaf5bf69d7dbee581b8e3_01_11-21_UPRIGHT_LOGO_800.png" alt="Upright Logo">
+        <!-- 
+            img tag has two default attributes
+                - src
+                    - required
+                    - source of the image. This could be in an assets folder or another location on the web.
+                - alt
+                    - optional ~ but highly recommended
+                    - text that is used in case image doesn't load.
+                    - text that is read by screen readers for the visually impaired.
+                    - can be a source for SEO (Search Engine Optimization)  
+                - title
+                    - can help with tool-tips.
+        -->
+        <!-- ^All the above tags are Structural Elements -->
+    </div>
+
+    <!-- Style / Styled Elements: -->
+    <!-- 
+        emmet example: div>ul>li*6 
+
+        ul: Unordered List, bullet point list
+        ol: Ordered List, numbered list
+        li: List Item
+    -->
+    <div>
+        <ul>
+            <li><strong>Bolds our text</strong> but so does <b>this</b>.</li>
+            <li><em>Provides emphasis</em> or <i>italics</i></li>
+            <li><br>Will do a line break for us. <i>Notice the no closing tags?</i></li>
+            <li><hr>Gives us a horizontal rule or <b>dividing line</b></li>
+            <li><blockquote>"quote"</blockquote></li>
+            <li><pre>A way to showcase code</pre></li>
+        </ul>
+    </div>
+    
+    <!--  More Self-Closing Tags: -->
+    <div>
+        <!-- 
+            input: typically used in forms but not limited. 
+                - Many different types such as numbers, radial, email, password, etc.
+            link: won't show up in the browser, but is a way for us to connect files such as CSS.
+        -->
+        <input type="text">
+        <input type="password">
+        <link rel="stylesheet" href="">
+    </div>
+
+    <!-- Semantic Elements: element names that clearly describe what they are to the developer and browser. -->
+    <img src="https://i.pinimg.com/originals/46/e2/1c/46e21c46e7001fca6554cd45562268fa.jpg" alt="Semantic tag layout">
+
+    <hr>
+
+    <!-- 
+        Sample HTML layout of Page Structure Example
+        - wrapped in a div simply to separate it out.
+    -->
+
+    <div>
+        <header></header>
+        <aside></aside>
+        <section>
+            <article></article>
+            <article></article>
+        </section>
+        <footer></footer>
+    </div>
+
+  </body>
+</html>
