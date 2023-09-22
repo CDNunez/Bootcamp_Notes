@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flex</title>
+  <link rel="stylesheet" href="./styles.css">
+  <!-- ^ without this line, my html file cannot read my css styles -->
+</head>
+<body>
+  <div class="flex-sample">
+    <h1>Flex Heading</h1>
+    <div id="flex-container">
+      <div class="card">
+        <h3>Accomplish</h3>
+        <p><b>Horizontal</b> or <b>Vertical</b> arrangement of elements</p>
+        <p>Space distribution of elements</p>
+      </div>
+
+      <div class="card">
+        <h3>Quick Notes</h3>
+        <p>It is one-dimensional. This will either going to affect a row or column, but not both at the same time.</p>
+        <p>Useful for layout on nav bars, headers, image galleries</p>
+        <p>Place Elements that are direct children, but does not affect further children</p>
+      </div>
+
+      <div class="card">
+        <h3>Flex Container</h3>
+        <p>Our element with the `display: flex` style. This style applies to the container and it's children</p>
+      </div>
+
+      <div class="card">
+        <h3>Justify Content</h3>
+        <p>Position content along the axis of our flex container</p>
+        <ol>
+          <li>flex-start</li>
+          <li>flex-end</li>
+          <li>center</li>
+          <li>space-between</li>
+          <li>space-around</li>
+          <li>space-evenly</li>
+        </ol>
+      </div>
+
+      <div class="card">
+        <h3>Align Items</h3>
+        <p>Similar to Justify Content <b>but</b> works along the cross-axis (perpendicular to the flex-direction)</p>
+        <ol>
+          <li>flex-start</li>
+          <li>flex-end</li>
+          <li>center</li>
+          <li>stretch</li>
+          <li>baseline</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

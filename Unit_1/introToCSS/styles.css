@@ -26,7 +26,7 @@ p, h1 { /* Select All <p> Tags */
 
 /* body selector - what we write before the {} is going to be our "selector". A "selector" is the term for the element or elements on my HTML page which are being edited by this style rule*/
 body {
-  background-color: lightgray;
+  background-color: rgb(60, 60, 60);
   /* 
     In CSS we have 3 major ways to refer to a color:
         - color keywords:
@@ -59,5 +59,67 @@ h1, h2, h3, h4, h5, h6 {
   text-decoration: underline overline;
   background-color: pink;
   color: olivedrab;
+  border-radius: 25px;
 }
 /* We are only ever going to get back ONE item with a given ID. Unlike a tag name or class, we cannot use the same ID for multiple elements. If we use the same ID multiple times, the styling will still apply. This does not mean we should use it in place of a class. Our browser and JavaScript is only going to pay attention to the first item with a given ID when we start making our pages functional */
+
+/* I can focus my selector to only work on .btn classes WITHIN a specific container */
+nav .btn {
+  text-shadow: 2px 2px 2px black;
+}
+
+/* This selector will only effect the direct children of our nav (only elements which are immediately after the <nav> tag with no <div> or <span> in betwen */
+nav > .btn {
+  /* This is going to change the text color using the class */
+  background-color: rgb(44, 39, 79);
+}
+
+/* This is going to change my text color using the tag (or element) name */
+/* a {
+  color: darkviolet !important;
+} */
+
+/*
+  ! CSS Hierarchy
+  
+    This is going to allow CSS to use distinct levels of "priority" to style our elements. The order of priority from weakest to strongest is:
+
+    External Stylesheet:
+    - Element
+    - Class
+    - ID
+    
+    Internal Stylesheet:
+    - Element
+    - Class
+    - ID
+    
+    - Inline Styling
+    - !important
+    
+    "External Stylesheet" is a .css file which is not the .html file we have our webpage in
+
+    "Internal Styleshet" is CSS written within the .html file
+
+    "Inline Styling" is when I add a "style" property to an element in my .html file
+*/
+
+/* Styling an unvisited link */
+a:link {
+  color: #7b7bdc;
+}
+
+/* Styling a link I have visited */
+a:visited {
+  color: orangered;
+}
+
+/* Styling a link my mouse is hovering over */
+a:hover {
+  color: pink;
+}
+
+/* Styling a link while it is being clicked */
+a:active {
+  color: greenyellow;
+}

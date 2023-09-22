@@ -1,0 +1,21 @@
+.flex-sample {
+  /* If I want to use flex to move items on my page, I will edit the "display" property in CSS */
+  display: flex;
+  /* by default, flex will show my items on the page in a row, meaning all side by side */
+  flex-direction: column;
+  /* Our flex-direction is going to control where information on our page goes, almost telling it what order to read. (Top to Bottom, Left to Right, etc.) */
+  align-items: center;
+}
+
+.card {
+  background-color: pink;
+  border-radius: 5px;
+  padding: 7px;
+  width: 30%;
+}
+
+#flex-container {
+  display: flex; /* flex-direction: row; */
+  flex-wrap: wrap; /* this is a multi-line flex container, wrap any content that goes past the flex container to a new line */
+  justify-content: space-evenly;
+}

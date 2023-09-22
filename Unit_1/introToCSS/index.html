@@ -6,8 +6,26 @@
   <title>Intro to CSS</title>
   <!-- I am going to connect my CSS file -->
   <link rel="stylesheet" href="./styles.css"> <!-- a `link` tag is used to connect an external CSS file to our HTML file. Right now we are using a "relative path" to connect our css page -->
+  <style>
+    /* a {
+      color: black;
+    } */
+    /* I can write normal CSS within this style tag. This is my Internal Style Sheet */
+  </style>
 </head>
 <body>
+  <nav>
+    <!-- to copy a line, we can select it with our cursor, and hold option/alt + shift, then press either up or down -->
+    <a href="#a" class="btn">Home</a>
+    <a href="#b" class="btn">News</a>
+    <span>
+      <a href="#c" class="btn">Contact</a>
+    </span>
+    <a href="#d" class="btn">About</a>
+  </nav>
+
+  <a href="#e" class="btn" style="text-decoration: none;">External Link</a>
+
   <div>
     <h1 class="header">This is my Intro to CSS Page</h1>
     <p class="header">Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus minima commodi, omnis dolorem aperiam eum enim magni sequi quos sapiente, saepe, reprehenderit obcaecati. Quae asperiores assumenda excepturi numquam? Sequi, numquam!</p>
