@@ -79,16 +79,20 @@ r += 1; // r = r + 1 answer: 5
 console.log(r); // 5
 
 // Subtraction Operator
-r -= 3; // r = r - 3
+r -= 1; // r = r - 3
+console.log('-: ', r);
 
 // Multiplication Operator
 r *= 2; // r = r * 2
+console.log('*: ', r);
 
 // Division Operator
-r /= 1; // r = r / 1
+r /= 2; // r = r / 1
+console.log('/: ', r);
 
 // Remainder Operator (Modulus Operator)
 r %= 1; // r = r % 1
+console.log('%: ', r);
 
 // Exponential Operator
 r **= 1; // r = r ** 1;
