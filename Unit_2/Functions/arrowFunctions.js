@@ -89,11 +89,14 @@ console.log(newName);
 // let total = tipCalc(15,3)
 // console.log(total);
 
+let bill = 100;
+
 function tipCalc(subTotal) {
     let tip = subTotal * .2;
     let total = subTotal + tip;
     return total.toFixed(2);
 }
 
-let total = tipCalc(19.72)
+// let total = tipCalc(19.72)
+let total = tipCalc(bill)
 console.log(total);
