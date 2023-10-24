@@ -44,4 +44,13 @@ const presidents = [
     { first: 'Barack', last: 'Obama', year: 1961, passed: undefined },
     { first: 'Donald', last: 'Trump', year: 1946, passed: undefined },
     { first: 'Joseph', last: 'Biden', year: 1942, passed: undefined },
-  ];
+];
+
+/* 
+    - How many presidents have we had?
+    - Create a list of all presidents that are alive.
+    - Dead Presidents?
+
+    - Using a forEach loop through the presidents and have it console.log() first name, last name was XX years old when they died. 
+    - We only want the dead presidents to be displayed.
+*/
