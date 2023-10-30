@@ -17,13 +17,16 @@ class Vehicle {
         this.model = model;
         this.no_wheels = no_wheels;
         this.color = color;
+        this.engine_on;
     }
 
     engineOn() {
         console.log(`The ${this.color} ${this.make} ${this.model} turns on its engine.`);
+        this.engine_on = true;
     }
     engineOff() {
         console.log(`The ${this.color} ${this.make} ${this.model} turns off its engine.`);
+        this.engine_on = false;
     }
 
 }
@@ -35,9 +38,9 @@ class Vehicle {
 
 /*  
     - Using the Vehicle Class
-        - Update the Vehicle Class to include a new propter called "engine_on". Have it hold no value.
-        - Update both methods to change the value of "engine_on" to either "true" if the vehicle is on or "false" if the vehicle is off.
-    - Create a Sedan class that extends form the Vehicle class
+        - Update the Vehicle Class to include a new property called "engine_on". Have it hold no value. - DONE
+        - Update both methods to change the value of "engine_on" to either "true" if the vehicle is on or "false" if the vehicle is off. - DONE
+    - Create a Sedan class that extends from the Vehicle class
         - The constructor will use all the values from the Vehicle class and add a "tank".
             - The "tank" will hold a numeric value (10-14 typically).
         - The Sedan class will need to have a factory method called "parkedCar". 
@@ -54,3 +57,59 @@ class Vehicle {
                                 - adjust the number of gallons current in the tank.
                             - If it does not: console.log "There isn't enough gas in the [make] to drive that many miles."
 */
+
+class Sedan extends Vehicle {
+    static parkedCar(make,model,wheels,color,tank) {
+        let engine_on = false;
+        return new Sedan(
+            make,model,wheels,color,engine_on,tank
+        );
+    }
+
+    constructor(make,model,no_wheels,color,engine_on,tank) {
+        super(make,model,no_wheels,color,engine_on);
+        this.tank = tank;
+    }
+
+    drive(gallons) {
+        if(this.engine_on) {
+            // console.log(`The ${this.color} ${this.model} is turned on.`)
+            if(this.tank > gallons) {
+
+                if(this.tank === 1) {
+                    // console.log(first)
+                }
+
+                console.log(`You drive around and use up ${gallons} gallons of gas.`);
+                this.tank -= gallons;
+            } else {
+                console.log(`There isn't enough gas in the ${this.make} to drive that many miles.`);
+            }
+
+        } else {
+            console.log(`The ${this.color} ${this.model} needs to be turned on.`)
+        }
+    }
+}
+
+const blueCivic = Sedan.parkedCar(
+    'Honda','Civic',4,'blue',12
+);
+// blueCivic.drive(1);
+blueCivic.engineOn();
+blueCivic.drive(13);
+
+
+    // function one(test) {
+    //     two(test);
+    // }
+    
+    // function two(test) {
+    //     console.log(test)
+    // }
+
+    // one(2)
+
+
+
+
