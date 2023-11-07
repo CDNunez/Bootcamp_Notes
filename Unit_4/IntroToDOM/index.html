@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: lightgrey;
+            /* background-color: rgb(150,100,100); */
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="list">
+        <div id="listTitle">To Do List</div>
+        <div id="toDoList">
+            <ul id="ulToDo">
+                <li class="listItem">Clean bathroom</li>
+                <li class="listItem">Pack Clothes</li>
+                <li class="listItem">Pack Bathroom stuff</li>
+                <li class="listItem">Check if doors and windows closed</li>
+                <li class="listItem">Clean Kitchen</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Event Listeners -->
+    <div id="inputField" style="text-align: center">
+        <input type="text" id="listInput" placeholder="ToDo Item" >
+        <button id="submit">Add Item</button>
+    </div>
+
+    <!-- Create something new -->
+    <div>
+        <button id="table-btn">Build</button>
+        <div id="shell-div">
+
+        </div>
+    </div>
+
+    <!-- Inline Scripting -->
+    <!-- <script>
+        console.log('Within the HTML doc');
+        console.log(window.document);
+        alert("Warning");
+        prompt();
+        confirm('Are you sure?');
+    </script> -->
+
+    <!-- 
+    External File Scripting
+        - helps with maintainability
+        - request triggered to obtain script
+    -->
+    <script src="./index.js"></script>
+    <script src="./table.js"></script>
+
+</body>
+
+</html>
