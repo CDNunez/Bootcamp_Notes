@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Form</title>
+</head>
+
+<body>
+
+    <h1>Animal Table</h1>
+
+    <!-- User Form -->
+    <div id="container">
+        <form>
+            <label for="species">Add Animals</label>
+            <input name="species" type="text" autocomplete="off" placeholder="Dog/Cat/Racoon" />
+            <br>
+            <label for="name">Name of Pet</label>
+            <input autocomplete="off" type="text" name="name" placeholder="Fluffy" />
+            <div id="radio-btn">
+                <label>Male</label>
+                <input type="radio" name="sex" value="male">
+                <label>Female</label>
+                <input type="radio" name="sex" value="female">
+            </div>
+
+            <input type="submit" id="submit-btn" value="Add">
+        </form>
+    </div>
+
+    <!-- Table -->
+    <div id="table-window">
+        <table>
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Name</th>
+                    <th>Sex</th>
+                    <th>Species</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- JS will fill this in -->
+            </tbody>
+        </table>
+    </div>
+
+
+    <script src="./index.js"></script>
+</body>
+
+</html>
