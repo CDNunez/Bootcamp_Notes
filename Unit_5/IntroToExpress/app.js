@@ -5,6 +5,7 @@ const PORT = 4000; // server port within localhost. using 'ALL CAPS' to indicate
 const practiceController = require('./controllers/practice.controller');
 const authController = require('./controllers/auth.controller');
 const { logTime } = require('./utils');
+const routeController = require('./controllers/route.controller');
 
 //* MIDDLEWARE
 app.use(logTime);
@@ -18,6 +19,7 @@ app.use(express.static(`${__dirname}/public`));
 //* CONTROLLER
 app.use('/practice', practiceController);
 app.use('/todo', authController);
+app.use('/routes', routeController);
 /* 
     Any traffic coming in that has "practice" after localhost:4000 will route to practice.controller.js
         ex: localhost:4000/practice
