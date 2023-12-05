@@ -35,8 +35,9 @@ router.get('/', (req,res) => {
         - "1" would reference a parameter or flexible string.
             - This could be a name of something or anything that we want.
 */
-router.get('/:id', (req,res) => {
-    console.log(req.params);
+router.get('/find-one/:id', (req,res) => {
+    // console.log(req);
+    // console.log(req.params);
 
     /* 
         - used to help us locate one item in our database
@@ -62,6 +63,41 @@ router.get('/:id', (req,res) => {
     }
 })
 
+
+//* Query
+router.get('/query/', (req,res) => {
+
+    /* 
+        - Anything after the endpoint can be extracted.
+        ex: 
+            localhost:4000/routes/query/?firstname="John"
+    */
+
+    try {
+        // console.log(req.query.firstName);
+        const {firstName, lastName} = req.query;
+        // multi query: localhost:4000/query/?firstName=John&lastName=Doe
+
+        if(firstName && lastName) {
+            console.log(firstName, lastName)
+            res.status(200).json({
+                results: {
+                    first: firstName,
+                    last: lastName,
+                    fullName: `${firstName} ${lastName}`
+                }
+            })
+        } else {
+            throw new Error("Need to supply First and Last Names");
+        }
+        
+    } catch (err) {
+        res.status(500).json({
+            error: err.message  
+        })
+    }
+});
+
 router.get('*', (req,res) => {
     try {
         res.status(200).json({
@@ -72,6 +108,6 @@ router.get('*', (req,res) => {
             error: err.message  
         })
     }
-})
+});
 
 module.exports = router;
