@@ -1,0 +1,22 @@
+[
+    {
+        "id":19,
+        "title": "Lord of the Rings: The Fellowship of the Ring",
+        "author": "J.R.R. Tolkien"
+    },
+    {
+        "id":24,
+        "title": "Animal Farm",
+        "author": "George Orwell"
+    },
+    {
+        "id":97,
+        "title": "Frankenstein",
+        "author": "Mary Shelley"
+    },
+    {
+        "id":32,
+        "title": "Of Mice and Men",
+        "author": "John Steinbeck"
+    }
+]
