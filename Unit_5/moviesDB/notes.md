@@ -118,3 +118,19 @@ const token = jwt.sign({id: user._id}, "secret message", {expiresIn: 60 * 60 * 2
     - Options sets (expiration)
       -  represents seconds or a string time span
          -  ex: `"2 days"` or `"10h"`
+
+```js
+/* 
+! Challenge
+    - Create a Schema called MovieSchema
+    - Properties within:
+        "title": string, required
+        "genre": string
+        "rating": string, required
+        "length": number, required
+        "releaseYear": number
+        
+    Note:
+        Consider how the User model was created.
+*/
+```
