@@ -2,7 +2,7 @@ const router = require('express').Router();
 const Movie = require('../models/movie.model');
 const { errorResponse } = require('../utils');
 
-//TODO POST
+//POST
 router.post('/', async (req, res) => {
     try {
 
@@ -30,7 +30,7 @@ router.post('/', async (req, res) => {
     }
 });
 
-//TODO GET All
+//GET All
 router.get('/', async (req, res) => {
     try {
         /* 
@@ -45,13 +45,30 @@ router.get('/', async (req, res) => {
         
         Hint: parameters within method are optional
 */
+
+        const allMovies = await Movie.find();
+
+        // if(allMovies.length === 0) throw new Error('no library found');
+
+        // res.status(200).json({
+        //     results: allMovies
+        // });
+
+        allMovies.length > 0 ? 
+            res.status(200).json({
+                result: allMovies
+            }) :
+            res.status(404).json({
+                result: `No movies found`
+            });
+
     } catch (err) {
         errorResponse(res, err)
     }
 });
 
-//TODO GET One
-router.get('/', async (req, res) => {
+//GET One
+router.get('/find-one/:id', async (req, res) => {
     try {
         /* 
 !   Challenge
@@ -64,13 +81,26 @@ router.get('/', async (req, res) => {
         Hint: Consider login within user.controller.js
         Docs: https://www.mongodb.com/docs/manual/reference/method/db.collection.findOne/
 */
+
+        const { id } = req.params; 
+        // console.log(req)
+        // console.log(typeof id)
+
+        const getMovie = await Movie.findOne({_id: id});
+
+        if(!getMovie) throw new Error('no movie found');
+
+        res.status(200).json({
+            results: getMovie
+        })
+
     } catch (err) {
         errorResponse(res, err)
     }
 });
 
-//TODO Get All by Genre
-router.get('/', async (req, res) => {
+//Get All by Genre
+router.get('/genre/:genre', async (req, res) => {
     try {
         /* 
 !   Challenge
@@ -82,23 +112,88 @@ router.get('/', async (req, res) => {
             - hint: conditional w/ looping
         - Test the route within Postman
 */
+
+        const { genre } = req.params;
+        let buildWord;
+
+        if(genre) {
+            // if(genre == "cmdy" || genre == "Comdy") {
+            //     buildWord = "Comedy"
+            // }
+
+            for(let i = 0; i < genre.length; i++) {
+                
+                if(i === 0) {
+                    buildWord = genre[i].toUpperCase();
+                } else if(genre[i-1] === "-" || genre[i -1] === " ") {
+                    buildWord += genre[i].toUpperCase();
+                } else {
+                    buildWord += genre[i].toLowerCase();
+                }
+
+                // i === 0 ?
+                //     buildWord = genre[i].toUpperCase() :
+                //     buildWord += genre[i].toLowerCase();
+            }
+        }
+
+        const getMovies = await Movie.find({genre: buildWord});
+
+        getMovies.length > 0 ?
+            res.status(200).json({
+                result: getMovies
+            }) :
+            res.status(404).json({
+                result: 'Try another genre'
+            })
+
     } catch (err) {
         errorResponse(res, err)
     }
 });
 
-//TODO PATCH/PUT One
-router.patch('/', async (req, res) => {
+//PATCH/PUT One
+router.patch('/:id', async (req, res) => {
     try {
+
+        //1. Pull value from parameter
+        const { id } = req.params;
+        //2. Pull data from the body
+        const info = req.body;
+
+        //3. Use method to locate a document based off the ID and pass in new information.
+        //* .findOneAndUpdate(query, document, options)
+        const returnOption = {new: true}; // option - returns the updated document.
+        const updated = await Movie.findOneAndUpdate({_id: id}, info, returnOption);
+
+        //4. Respond to client
+        res.status(200).json({
+            result: updated
+        });
 
     } catch (err) {
         errorResponse(res, err)
     }
 });
 
-//TODO DELETE One
-router.delete('/', async (req, res) => {
+//DELETE One
+router.delete('/:id', async (req, res) => {
     try {
+        //1. Capture data (ID)
+        const { id } = req.params;
+
+        //2. use a delete method to locate and remove
+        const deleteMovie = await Movie.deleteOne({_id: id});
+        // console.log(deleteMovie);
+
+        //3. respond to client
+        deleteMovie.deletedCount ?
+            res.status(200).json({
+                result: `Movie removed`
+            }) :
+            res.status(404).json({
+                result: `No movie in collection`
+            });
 
     } catch (err) {
         errorResponse(res, err)

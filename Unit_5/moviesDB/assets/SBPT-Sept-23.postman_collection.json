@@ -1,0 +1,553 @@
+{
+	"info": {
+		"_postman_id": "ab19cd4b-9538-4604-be43-4bcf790ffc5e",
+		"name": "SBPT-Sept-23",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "9753119"
+	},
+	"item": [
+		{
+			"name": "IntroToExpress",
+			"item": [
+				{
+					"name": "Hello World",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:4000/practice/hello-world",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"practice",
+								"hello-world"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "wild card",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:4000/practice/notaroute",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"practice",
+								"notaroute"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "main",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:4000",
+							"host": [
+								"localhost"
+							],
+							"port": "4000"
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get ALL",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:4000/routes",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"routes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "routes Wild",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:4000/routes/testing",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"routes",
+								"testing"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get One",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:4000/routes/find-one/3",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"routes",
+								"find-one",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Query",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:4000/routes/query/?firstName=John",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"routes",
+								"query",
+								""
+							],
+							"query": [
+								{
+									"key": "firstName",
+									"value": "John"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "greeting",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:4000/practice/greeting",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"practice",
+								"greeting"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "json",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Sue\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:4000/practice/json",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"practice",
+								"json"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\": \"Sue\",\r\n    \"lastName\": \"Storm\",\r\n    \"email\": \"no2@email\",\r\n    \"password\": \"test\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:4000/todo/register",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"todo",
+								"register"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "ExpressChallenge",
+			"item": [
+				{
+					"name": "GET",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:4000/routes",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"routes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:4000/routes/find-id/20",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"routes",
+								"find-id",
+								"20"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get by Title",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:4000/routes/query/?title=aniMAL FARM",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"routes",
+								"query",
+								""
+							],
+							"query": [
+								{
+									"key": "title",
+									"value": "aniMAL FARM"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Book",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\":\"1984\",\r\n    \"author\":\"George Orwell\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:4000/routes/titleAuthor",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"routes",
+								"titleAuthor"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Movies",
+			"item": [
+				{
+					"name": "Signup",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"three@email.com\",\r\n    \"password\": \"test\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{PORT}}/user/signup",
+							"host": [
+								"{{PORT}}"
+							],
+							"path": [
+								"user",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Movie",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Super Hero Movie 5\",\r\n    \"genre\": \"Sci-Fi\",\r\n    \"rating\": \"PG-13\",\r\n    \"length\": 120,\r\n    \"releaseYear\": 2021\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{PORT}}/movies",
+							"host": [
+								"{{PORT}}"
+							],
+							"path": [
+								"movies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Movies",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Super Hero Movie 2\",\r\n    \"genre\": \"Action\",\r\n    \"rating\": \"PG-13\",\r\n    \"length\": 120,\r\n    \"releaseYear\": 2020\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{PORT}}/movies",
+							"host": [
+								"{{PORT}}"
+							],
+							"path": [
+								"movies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All by Genre",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Super Hero Movie 2\",\r\n    \"genre\": \"Action\",\r\n    \"rating\": \"PG-13\",\r\n    \"length\": 120,\r\n    \"releaseYear\": 2020\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{PORT}}/movies/genre/sci-fi",
+							"host": [
+								"{{PORT}}"
+							],
+							"path": [
+								"movies",
+								"genre",
+								"sci-fi"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get One by ID",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Super Hero Movie 2\",\r\n    \"genre\": \"Action\",\r\n    \"rating\": \"PG-13\",\r\n    \"length\": 120,\r\n    \"releaseYear\": 2020\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{PORT}}/movies/find-one/{{MOVIEID}}",
+							"host": [
+								"{{PORT}}"
+							],
+							"path": [
+								"movies",
+								"find-one",
+								"{{MOVIEID}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Movie",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Super Hero Movie 7\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{PORT}}/movies/{{MOVIEID}}",
+							"host": [
+								"{{PORT}}"
+							],
+							"path": [
+								"movies",
+								"{{MOVIEID}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete One by ID",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Super Hero Movie 2\",\r\n    \"genre\": \"Action\",\r\n    \"rating\": \"PG-13\",\r\n    \"length\": 120,\r\n    \"releaseYear\": 2020\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{PORT}}/movies/{{MOVIEID}}",
+							"host": [
+								"{{PORT}}"
+							],
+							"path": [
+								"movies",
+								"{{MOVIEID}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"three@email.com\",\r\n    \"password\": \"test\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{PORT}}/user/login",
+							"host": [
+								"{{PORT}}"
+							],
+							"path": [
+								"user",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
