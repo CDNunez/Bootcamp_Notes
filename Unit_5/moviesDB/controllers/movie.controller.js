@@ -1,10 +1,13 @@
 const router = require('express').Router();
 const Movie = require('../models/movie.model');
 const { errorResponse } = require('../utils');
+const validateSession = require('../middleware/validate-session')
 
 //POST
-router.post('/', async (req, res) => {
+router.post('/', validateSession, async (req, res) => {
     try {
+
+        // console.log(req);
 
         //1. Pull data from client (body)
         const {
@@ -13,7 +16,8 @@ router.post('/', async (req, res) => {
 
         //2. Create a new object using the model
         const movie = new Movie({
-            title, genre, rating, length, releaseYear
+            title, genre, rating, length, releaseYear,
+            owner_id: req.user._id
         });
 
         //3. Save the object to the DB
@@ -31,7 +35,7 @@ router.post('/', async (req, res) => {
 });
 
 //GET All
-router.get('/', async (req, res) => {
+router.get('/', validateSession, async (req, res) => {
     try {
         /* 
 !   Challenge
@@ -48,6 +52,7 @@ router.get('/', async (req, res) => {
 
         const allMovies = await Movie.find();
 
+        // console.log(req.user);
         // if(allMovies.length === 0) throw new Error('no library found');
 
         // res.status(200).json({
@@ -153,18 +158,25 @@ router.get('/genre/:genre', async (req, res) => {
 });
 
 //PATCH/PUT One
-router.patch('/:id', async (req, res) => {
+router.patch('/:id',validateSession, async (req, res) => {
     try {
 
         //1. Pull value from parameter
-        const { id } = req.params;
+        // const { id } = req.params;
+        const filter = {
+            _id: req.params.id,
+            owner_id: req.user._id
+        }
+
         //2. Pull data from the body
         const info = req.body;
 
         //3. Use method to locate a document based off the ID and pass in new information.
         //* .findOneAndUpdate(query, document, options)
         const returnOption = {new: true}; // option - returns the updated document.
-        const updated = await Movie.findOneAndUpdate({_id: id}, info, returnOption);
+
+        // const updated = await Movie.findOneAndUpdate({_id: id}, info, returnOption);
+        const updated = await Movie.findOneAndUpdate(filter, info, returnOption);
 
         //4. Respond to client
         res.status(200).json({
@@ -177,13 +189,13 @@ router.patch('/:id', async (req, res) => {
 });
 
 //DELETE One
-router.delete('/:id', async (req, res) => {
+router.delete('/:id', validateSession, async (req, res) => {
     try {
         //1. Capture data (ID)
         const { id } = req.params;
 
         //2. use a delete method to locate and remove
-        const deleteMovie = await Movie.deleteOne({_id: id});
+        const deleteMovie = await Movie.deleteOne({_id: id, owner_id: req.user._id});
         // console.log(deleteMovie);
 
         //3. respond to client
