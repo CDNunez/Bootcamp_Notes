@@ -73,7 +73,7 @@ router.get('/', validateSession, async (req, res) => {
 });
 
 //GET One
-router.get('/find-one/:id', async (req, res) => {
+router.get('/find-one/:id',validateSession, async (req, res) => {
     try {
         /* 
 !   Challenge
@@ -105,7 +105,7 @@ router.get('/find-one/:id', async (req, res) => {
 });
 
 //Get All by Genre
-router.get('/genre/:genre', async (req, res) => {
+router.get('/genre/:genre',validateSession, async (req, res) => {
     try {
         /* 
 !   Challenge
