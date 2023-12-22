@@ -5,7 +5,15 @@ const Task = new mongoose.Schema({
     date: Date,
     details: String,
     resolved: Boolean,
-    // connection to Vehicle
+    vehicle_id: {
+        type: mongoose.Types.ObjectId,
+        ref: "Vehicle"
+    }
 });
 
 module.exports = mongoose.model('Task', Task);
+
+/* 
+    - vehicle_id is using an ObjectId type as its data.
+    - In this case, referencing another collection (vehicle)
+*/
