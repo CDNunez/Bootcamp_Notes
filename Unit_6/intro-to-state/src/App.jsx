@@ -11,9 +11,7 @@ const iCount = () => {
 
 function App() {
 
-  const [ names, setNames ] = useState([
-    'Frodo','Sam','Pippin','Merry'
-  ]);
+  const [ names, setNames ] = useState([]);
   // const [ count, setCount ] = useState(0)
   const [ count, setCount ] = useState(iCount)
 
@@ -38,7 +36,11 @@ function App() {
       <h1>Main App: {count}</h1>
       <Counter count={count} setCount={setCount} />
       <AddUser names={names} setNames={setNames} />
-      {displayWelcome()}
+      {
+        names.length > 0 ?
+        displayWelcome() :
+        <h1 style={{textAlign: "Center"}}>Add a User</h1>
+      }
     </div>
   );  
 }
