@@ -1,7 +1,8 @@
 import React, { useState, useRef } from 'react';
 import { Button, Form, FormGroup, Input, Label } from 'reactstrap';
+import { useNavigate } from 'react-router-dom';
 
-function Signup() {
+function Signup({updateToken}) {
 
     /* 
     ! useRef
@@ -20,6 +21,7 @@ function Signup() {
     const lastNameRef = useRef();
     const emailRef = useRef();
     const passwordRef = useRef();
+    const navigate = useNavigate();
 
     async function handleSubmit(e) {
         e.preventDefault();
@@ -52,6 +54,13 @@ function Signup() {
             const response = await fetch(url, requestOptions);
             const data = await response.json();
             console.log(data);
+
+            if(data.message === 'Success!! User Created!') {
+                updateToken(data.token)
+                navigate('/movie')
+            } else {
+                alert(data.message)
+            }
             
         } catch (err) {
             console.error(err.message);
