@@ -2,6 +2,7 @@ import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import Auth from './components/auth/Auth';
 import { useEffect, useState } from 'react';
+import MovieIndex from './components/movies/MovieIndex';
 
 function App() {
 
@@ -53,7 +54,7 @@ function App() {
         />
         <Route
           path='/movie'
-          element={<h2>Movie Section Placeholder</h2>}
+          element={<MovieIndex token={sessionToken} />}
         />
       </Routes>
 

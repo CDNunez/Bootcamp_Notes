@@ -24,8 +24,9 @@
 import React, { useRef } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { Form, FormGroup, Input, Label, Button } from 'reactstrap';
+import FullButton from '../../buttons/FullButton';
 
-function Login({updateToken}) {
+function Login({ updateToken }) {
 
     const emailRef = useRef();
     const passwordRef = useRef();
@@ -44,7 +45,7 @@ function Login({updateToken}) {
         const url = 'http://localhost:4005/user/login';
 
         try {
-            
+
             const res = await fetch(url, {
                 method: "POST",
                 headers: new Headers({
@@ -56,7 +57,7 @@ function Login({updateToken}) {
             const data = await res.json();
             // console.log(data);
 
-            if(data.message === 'Successful') {
+            if (data.message === 'Successful') {
                 updateToken(data.token)
                 navigate('/movie')
             } else {
@@ -92,7 +93,9 @@ function Login({updateToken}) {
                         autoComplete={'off'}
                     />
                 </FormGroup>
-                <Button type='submit'>Login</Button>
+                <FullButton>
+                    <Button type='submit'>Login</Button>
+                </FullButton>
             </Form>
         </>
     )
