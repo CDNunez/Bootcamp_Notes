@@ -53,6 +53,7 @@ function MovieCreate(props) {
             const data = await res.json();
 
             console.log(data);
+            props.fetchMovies();
 
         } catch (err) {
             console.error(err.message)
