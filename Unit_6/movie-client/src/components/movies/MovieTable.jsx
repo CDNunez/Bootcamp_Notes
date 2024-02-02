@@ -1,9 +1,12 @@
 import React from 'react'
 import { Button, Table } from 'reactstrap'
 import { baseURL } from '../../enivornment'
+import { useNavigate } from 'react-router-dom';
 
 function MovieTable({movies, token, fetchMovies}) {
     // console.log(movies)
+
+    const navigate = useNavigate();
 
     async function deleteMovie(id) {
         const url = `${baseURL}/movies/${id}`;
@@ -65,6 +68,10 @@ function MovieTable({movies, token, fetchMovies}) {
                                 <td>{movie.length} mins</td>
                                 <td>{movie.releaseYear}</td>
                                 <td>
+                                    <Button
+                                        onClick={() => navigate(`/movie/update/${movie._id}`)}
+                                        color='warning'
+                                    >Edit</Button>
                                     <Button
                                         onClick={() => deleteMovie(movie._id)}
                                         color='danger'

@@ -3,12 +3,14 @@ import './App.css';
 import Auth from './components/auth/Auth';
 import { useEffect, useState } from 'react';
 import MovieIndex from './components/movies/MovieIndex';
+import MovieEdit from './components/movies/MovieEdit';
+import Logout from './components/auth/logout/Logout';
 
 function App() {
 
   const [sessionToken, setSessionToken] = useState('');
 
-  console.log('App:', sessionToken);
+  // console.log('App:', sessionToken);
 
   const updateToken = newToken => {
     localStorage.setItem('token', newToken)
@@ -47,6 +49,11 @@ function App() {
 
   return (
     <div className="App">
+      {
+        sessionToken !== '' ?
+        <Logout setToken={setSessionToken} /> : 
+        null
+      }
       <Routes>
         <Route
           path='/'
@@ -55,6 +62,10 @@ function App() {
         <Route
           path='/movie'
           element={<MovieIndex token={sessionToken} />}
+        />
+        <Route
+          path='/movie/update/:id'
+          element={<MovieEdit token={sessionToken} />}
         />
       </Routes>
 
